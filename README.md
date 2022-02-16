@@ -27,3 +27,4 @@ Alternatively you can just create a *build* folder at the root of this project, 
 ### Static analysis
 
 [Check this out](https://julesfouchy.github.io/Learn--Clean-Code-With-Cpp/lessons/static-analysis-and-sanitizers) to learn why you would want to use static analysis and how to do it.
+# code-clean
