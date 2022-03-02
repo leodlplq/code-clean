@@ -1,13 +1,5 @@
 #include "./include/play_guess_the_number.hpp"
 
-/// Returns a random int between min (included) and max (included)
-int rand(int min, int max)
-{
-    static std::default_random_engine  generator{std::random_device{}()};
-    std::uniform_int_distribution<int> distribution{min, max};
-    return distribution(generator);
-}
-
 int get_int_from_user()
 {
     int int_from_user;
@@ -27,7 +19,6 @@ void play_guess_the_number()
     const int random_number = rand(lower_number, higher_number);
 
     int user_guess_number;
-
     std::cout << "I picked a number between " << lower_number << " and " << higher_number << std::endl;
     bool finished = false;
     while (!finished) {
