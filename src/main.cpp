@@ -23,10 +23,14 @@ bool is_player_alive(int nb_lives)
     return nb_lives > 0;
 }
 
-bool player_has_won(const std::vector<bool>& letter_guessed)
+bool has_player_won(const std::vector<bool>& letter_guessed)
 {
+    // all true
     std::all_of(letter_guessed.begin(), letter_guessed.end(), [](bool v) { return v; });
-    return false;
+
+    // all false
+    std::all_of(letter_guessed.begin(), letter_guessed.end(), [](bool v) { return !v; });
+    std::none_of(letter_guessed.begin(), letter_guessed.end(), [](bool v) { return v; });
 }
 
 void show_word_with_missing_letters(const std::string& word, std::vector<bool>& letter_guessed)
@@ -69,31 +73,34 @@ void show_defeat_message(std::string_view word_to_guess)
 {
     std::cout << "you're so bad... ewww, the good word was : " << word_to_guess;
 }
+
+void play_hangman()
+{
+    // TODO: adapt the code below to make it work
+    std::string       word_to_guess = get_random_word();
+    std::vector<bool> guessed_letters(word_to_guess.size());
+    int               nb_lives = 8;
+
+    while (is_player_alive(nb_lives) && !has_player_won(guessed_letters)) {
+        show_number_of_lives(nb_lives);
+        show_word_with_missing_letters(word_to_guess, guessed_letters);
+        const auto guess = get_input_from_user<char>();
+        if (word_contains(guess, word_to_guess)) {
+            mark_as_guessed(guess, guessed_letters, word_to_guess);
+        }
+        else {
+            remove_one_life(nb_lives);
+        }
+    }
+    if (has_player_won(guessed_letters)) {
+        show_congrats_message(word_to_guess);
+    }
+    else {
+        show_defeat_message(word_to_guess);
+    }
+}
 int main()
 {
     // std::string word = get_random_word();
-    void play_hangman()
-    {
-        // TODO: adapt the code below to make it work
-        std::string word_to_guess = pick_a_word_to_guess();
-        int         nb_lives      = 8;
-
-        while (player_is_alive(nb_lives) && !player_has_won()) {
-            show_number_of_lives(nb_lives);
-            show_word_to_guess_with_missing_letters();
-            const auto guess = get_char_from_user();
-            if (word_to_guess_contains(guess)) {
-                mark_as_guessed(guess);
-            }
-            else {
-                remove_one_life();
-            }
-        }
-        if (player_has_won()) {
-            show_congrats_message();
-        }
-        else {
-            show_defeat_message();
-        }
-    }
+    play_hangman();
 }
