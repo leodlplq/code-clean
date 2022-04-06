@@ -10,10 +10,10 @@ This readme is here to show my advancement in the project and in the lessons of 
 - [x] Guess the number
 - [x] Hangman
 - [x] Adding a menu
-- [] Noughts and Crosses
-- [] Connect 4
-- [] Adding tests
-- [] AI for Hangman 
+- [ ] Noughts and Crosses
+- [ ] Connect 4
+- [ ] Adding tests
+- [ ] AI for Hangman 
 
 ## Progression in lessons
 
