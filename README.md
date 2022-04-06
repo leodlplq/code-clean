@@ -5,14 +5,15 @@ This the repo dedicated to my code clean course at IMAC.
 This readme is here to show my advancement in the project and in the lessons of the course. 
 
 ## TODO
-    [x] Setting up the project
-    [x] Guess the number
-    [x] Hangman
-    [x] Adding a menu
-    [] Noughts and Crosses
-    [] Connect 4
-    [] Adding tests
-    [] AI for Hangman 
+
+[x] Setting up the project
+[x] Guess the number
+[x] Hangman
+[x] Adding a menu
+[] Noughts and Crosses
+[] Connect 4
+[] Adding tests
+[] AI for Hangman 
 
 ## Progression in lessons
 
