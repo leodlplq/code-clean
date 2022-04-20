@@ -19,3 +19,7 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 file(GLOB_RECURSE MY_SOURCES CONFIGURE_DEPENDS src/*)
 target_sources(${PROJECT_NAME} PRIVATE ${MY_SOURCES})
 target_include_directories(${PROJECT_NAME} PRIVATE src)
+
+
+add_subdirectory(p6)                                  # Includes the p6 library ; this assumes that you have a folder called p6 at the same level as this CMakeLists.txt file, and that the p6 folder contains a CMakeLists.txt file
+target_link_libraries(${PROJECT_NAME} PRIVATE p6::p6)
