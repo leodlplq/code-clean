@@ -35,13 +35,22 @@ std::vector<CellCoord> createCellVector(const int& size)
 Coord turnCellCordIntoP6Coord(const CellCoord& coord, const float& squareSize, const float& gap, p6::Context& ctx)
 {
     Coord P6Coord;
-    std::cout << "aspectratio: " << ctx.aspect_ratio() << " gap: " << gap << " squareSize: " << squareSize << std::endl;
+    /* std::cout << "aspectratio: " << ctx.aspect_ratio() << " gap: " << gap << " squareSize: " << squareSize << std::endl; */
     P6Coord.x = -ctx.aspect_ratio() + (squareSize / 2 + (coord.x * squareSize) + (coord.x * gap));
     P6Coord.y = 1.f - (squareSize / 2 + (coord.y * squareSize) + (coord.y * gap));
 
-    std::cout << "x= " << P6Coord.x << " y= " << P6Coord.y << std::endl;
+    /* std::cout << "x= " << P6Coord.x << " y= " << P6Coord.y << std::endl; */
 
     return P6Coord;
+}
+
+bool isHover(p6::Context& ctx, const Coord& cell, const float& squareSize)
+{
+    if (ctx.mouse().x >= cell.x - (squareSize / 2) && ctx.mouse().x <= cell.x + (squareSize / 2) && ctx.mouse().y >= cell.y - (squareSize / 2) && ctx.mouse().y <= cell.y + (squareSize / 2))
+        return true;
+    else {
+        return false;
+    }
 }
 
 void create_grid(p6::Context& ctx, const std::vector<CellCoord> cellVec, const float& square_size, const float& gap)
@@ -49,28 +58,23 @@ void create_grid(p6::Context& ctx, const std::vector<CellCoord> cellVec, const f
     //faire une fonction qui transforme coord d'une cellule avec en coordonnée P6
     //utiliser le vecteur pour placer correctement les cases
     //dessiner les cases
-    ctx.fill       = {0.20, 0.49, 0.85};
+    ctx.fill = {0.20, 0.49, 0.85};
+
     ctx.use_stroke = false;
     //std::cout << size << std::endl;
     //DRAWING FIRST LINE
     Coord coord;
     for (auto i = 0; i < static_cast<int>(cellVec.size()); i++) {
         coord = turnCellCordIntoP6Coord(cellVec[i], square_size, gap, ctx);
+        if (isHover(ctx, coord, square_size)) {
+            ctx.fill = {0.7, 0.49, 0.85};
+        }
+        else {
+            ctx.fill = {0.20, 0.49, 0.85};
+        }
+
         ctx.square(p6::Center{coord.x, coord.y}, p6::Radius{square_size / 2});
     }
-
-    /*ctx.square(p6::Center{0.f, 1.f - (square_size)}, p6::Radius{square_size});
-    ctx.square(p6::Center{ctx.aspect_ratio() - (square_size), 1.f - (square_size)}, p6::Radius{square_size});
-
-    //DRAWING SECOND LINE
-    ctx.square(p6::Center{-ctx.aspect_ratio() + (square_size), 0.f}, p6::Radius{square_size});
-    ctx.square(p6::Center{0.f, 0.f}, p6::Radius{square_size});
-    ctx.square(p6::Center{ctx.aspect_ratio() - (square_size), 0.f}, p6::Radius{square_size});
-
-    //DRAWING THIRD LINE
-    ctx.square(p6::Center{-ctx.aspect_ratio() + (square_size), -1.f + (square_size)}, p6::Radius{square_size});
-    ctx.square(p6::Center{0.f, -1.f + (square_size)}, p6::Radius{square_size});
-    ctx.square(p6::Center{ctx.aspect_ratio() - (square_size), -1.f + (square_size)}, p6::Radius{square_size}); */
 }
 
 int main()
@@ -88,11 +92,12 @@ int main()
 
     ctx.update = [&]() {
         ctx.background({1.f, 1.f, 1.f});
-
+        std::cout << ctx.mouse().x << ctx.mouse().y << std::endl;
         create_grid(ctx, cellVector, square_size, gap);
     };
 
     ctx.start();
     //display_menu();
+
     return 0;
 }
