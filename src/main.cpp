@@ -53,6 +53,21 @@ bool isHover(p6::Context& ctx, const Coord& cell, const float& squareSize)
     }
 }
 
+void draw_nought(p6::Context& ctx, const Coord& coord, const float& square_size)
+{
+    ctx.circle(p6::Center{coord.x, coord.y}, p6::Radius{(square_size * 0.45f)});
+}
+
+void draw_cross(p6::Context& ctx, const Coord& coord, const float& square_size)
+{
+    /*   triangle(Point2D p1, Point2D p2, Point2D p3) */
+    float       radius = square_size * 0.45f;
+    p6::Point2D p1((coord.x + radius * 0.866 * cos(p6::PI / 2)), (coord.y + radius * 0.866 * sin(p6::PI / 2)));
+    p6::Point2D p2((coord.x + radius * cos((5 * p6::PI) / 4)), (coord.y + radius * sin((5 * p6::PI) / 4)));
+    p6::Point2D p3((coord.x + radius * cos((7 * p6::PI) / 4)), (coord.y + radius * sin((7 * p6::PI) / 4)));
+    ctx.triangle(p1, p2, p3);
+}
+
 void create_grid(p6::Context& ctx, const std::vector<CellCoord> cellVec, const float& square_size, const float& gap)
 {
     //faire une fonction qui transforme coord d'une cellule avec en coordonnée P6
@@ -74,6 +89,10 @@ void create_grid(p6::Context& ctx, const std::vector<CellCoord> cellVec, const f
         }
 
         ctx.square(p6::Center{coord.x, coord.y}, p6::Radius{square_size / 2});
+        ctx.fill = {0.0, 0.0, 0.0};
+        if (isHover(ctx, coord, square_size)) {
+            draw_cross(ctx, coord, square_size);
+        }
     }
 }
 
