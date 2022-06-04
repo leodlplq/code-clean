@@ -19,23 +19,23 @@ This readme is here to show my advancement in the project and in the lessons of 
 
 ### Level 1 🐟 
 - Install a compiler : 🟩🟩🟩✅
-- Use an IDE : 🟩🟩⬜️⏳
-- Use Git : 🟩🟩⬜️⏳
+- Use an IDE : 🟩🟩🟩⏳
+- Use Git : 🟩🟩🟩⏳
 - Use a debugger : ⬜️⬜️⬜️⏳
 - Use a formatting tool : 🟩🟩🟩⏳
 - Use static analysers : ⬜️⬜️⬜️⏳
-- Naming : 🟩🟩⬜️⏳
-- Stack vs Heap : 🟩🟩⬜️⏳
-- Consistency in style : 🟩⬜️⬜️⏳
+- Naming : 🟩🟩🟩⏳
+- Stack vs Heap : 🟩🟩🟩⏳
+- Consistency in style : 🟩🟩🟩⏳
 
 ### Level 2 🐬
-- Make it work, then make it good : 🟩🟩⬜️⏳
-- Prefer free functions : 🟩🟩⬜️⏳
-- Design cohesive classes : ⬜⬜️⬜️⏳
-- Use structs to group data : ⬜️⬜️⬜️⏳
+- Make it work, then make it good : 🟩🟩🟩⏳
+- Prefer free functions : 🟩🟩🟩⏳
+- Design cohesive classes : 🟩⬜️⬜️⏳
+- Use structs to group data : 🟩⬜️⬜️⏳
 - Write small functions : 🟩🟩⬜️⏳
 - DRY: Don't repeat yourself : 🟩🟩⬜️⏳
-- Enums : ⬜️⬜️⬜️⏳
+- Enums : 🟩⬜️⬜️⏳
 - Split problems in small pieces : 🟩🟩⬜️⏳
 - Composition over inheritance : 🟩🟩⬜️⏳
 
@@ -47,13 +47,13 @@ This readme is here to show my advancement in the project and in the lessons of 
 - Range-based for loop : ⬜️⬜️⬜️⏳
 - Testing : ⬜️⬜️⬜️⏳
 - Lambda function : ⬜️⬜️⬜️⏳
-- Master your IDE : ⬜️⬜️⬜️⏳
+- Master your IDE : 🟩⬜️⬜️⏳
 - std::optional : ⬜️⬜️⬜️⏳
 - Single Source of Truth : ⬜️⬜️⬜️⏳
 - Code reviews : ⬜️⬜️⬜️⏳
-- const : ⬜️⬜️⬜️⏳
+- const : 🟩🟩⬜️⏳
 - Documentation : ⬜️⬜️⬜️⏳
-- Don't overfocus on performance : ⬜️⬜️⬜️⏳
+- Don't overfocus on performance : 🟩⬜️⬜️⏳
 - Git submodules : ⬜️⬜️⬜️⏳
 - STL algortihms : ⬜️⬜️⬜️⏳
 - assert : ⬜️⬜️⬜️⏳
