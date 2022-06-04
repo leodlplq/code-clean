@@ -21,9 +21,9 @@ This readme is here to show my advancement in the project and in the lessons of 
 - Install a compiler : 🟩🟩🟩✅
 - Use an IDE : 🟩🟩🟩⏳
 - Use Git : 🟩🟩🟩⏳
-- Use a debugger : ⬜️⬜️⬜️⏳
+- Use a debugger : 🟩🟩⬜️⏳
 - Use a formatting tool : 🟩🟩🟩⏳
-- Use static analysers : ⬜️⬜️⬜️⏳
+- Use static analysers : 🟩⬜️⬜️⏳
 - Naming : 🟩🟩🟩⏳
 - Stack vs Heap : 🟩🟩🟩⏳
 - Consistency in style : 🟩🟩🟩⏳
